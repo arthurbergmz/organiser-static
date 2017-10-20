@@ -4,6 +4,26 @@
 
 Serving static files at `localhost:3000` (default) with Organiser.
 
+```javascript
+@GET
+async home () {
+  return Response.static(path.join(__dirname, '../static/index.html')).build()
+}
+```
+
+---
+
+> _**Disclaimer:** misbehavior while serving static files with Organiser v1.0.0. You have to use Response as below:_
+
+```javascript
+@GET
+async home () {
+  return (await Response.static('../filepath.json')).build()
+}
+```
+
+---
+
 ## how to run
 
 1. install dependencies
